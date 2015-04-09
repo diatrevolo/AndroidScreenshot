@@ -58,15 +58,18 @@
     [task waitUntilExit];
     [textField setStringValue:@"Ready!"];
     [videoButton setEnabled:true];
-    NSString * filePath = [NSString stringWithFormat:@"open ~/Desktop/%@", filename];
-    system([filePath cStringUsingEncoding:NSUTF8StringEncoding]);
+//    NSString * filePath = [NSString stringWithFormat:@"open ~/Desktop/%@", filename];
+//    system([filePath cStringUsingEncoding:NSUTF8StringEncoding]);
 }
 
 - (IBAction)toggleRecording:(id)sender {
     if (!self.isRecording.boolValue) {
         [screenshotButton setEnabled:false];
-        [videoButton setTitle:@"Stop recording"];
+        [videoButton setTitle:@"Preparing..."];
         NSString * scriptPath = [[NSBundle mainBundle] pathForResource: @"adb" ofType: nil];
+        
+        [videoButton setTitle:@"Recording..."];
+        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"yyyy-mm-dd-hhmmss"];
         [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
@@ -79,7 +82,8 @@
         [self setIsRecording:@true];
     } else {
         [videoButton setTitle:@"Start recording"];
-        [videoTask interrupt];
+        kill([videoTask processIdentifier], SIGTERM);
+        [videoTask waitUntilExit];
         NSString * scriptPath = [[NSBundle mainBundle] pathForResource: @"adb" ofType: nil];
         NSTask *task = [NSTask new];
         [task setLaunchPath:scriptPath];
