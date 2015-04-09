@@ -170,7 +170,7 @@
 				TargetAttributes = {
 					6280CCF7195DE0B2005BDE55 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = EK64L597KP;
+						DevelopmentTeam = 3E6BQ2LVL2;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -343,7 +343,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Android Screenshot/Info.plist";
 				INSTALL_MODE_FLAG = "u+w,go+w,a+rwX";
@@ -358,7 +357,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Android Screenshot/Info.plist";
 				INSTALL_MODE_FLAG = "u+w,go+w,a+rwX";

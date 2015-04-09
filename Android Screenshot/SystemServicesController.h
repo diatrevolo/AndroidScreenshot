@@ -10,10 +10,11 @@
 
 @interface SystemServicesController : NSViewController {
     IBOutlet NSTextField *textField;
+    IBOutlet NSButton *videoButton;
+    IBOutlet NSButton *screenshotButton;
 }
 
-
-
+- (IBAction)toggleRecording:(id)sender;
 - (IBAction)takeScreenshot:(id)sender;
 
 @end

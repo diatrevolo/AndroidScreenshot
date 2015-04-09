@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6154.17"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -10,7 +11,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -68,14 +69,14 @@
         <window title="Android Screenshot" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="248" height="99"/>
+            <rect key="contentRect" x="335" y="390" width="248" height="113"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="248" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="248" height="113"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kd5-Dn-kQL">
-                        <rect key="frame" x="53" y="51" width="142" height="32"/>
+                        <rect key="frame" x="53" y="65" width="142" height="32"/>
                         <buttonCell key="cell" type="push" title="Take Screenshot" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="arR-0A-PzB">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -84,8 +85,18 @@
                             <action selector="takeScreenshot:" target="1Kj-iL-rsa" id="Y9l-El-pkR"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1d-yX-kgd">
+                        <rect key="frame" x="53" y="32" width="142" height="32"/>
+                        <buttonCell key="cell" type="push" title="Start Recording" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U5W-95-bEO">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="toggleRecording:" target="1Kj-iL-rsa" id="JGF-5P-NdD"/>
+                        </connections>
+                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iZD-zB-4e2">
-                        <rect key="frame" x="18" y="21" width="212" height="17"/>
+                        <rect key="frame" x="18" y="14" width="212" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ready!" id="3aQ-Xp-5Gd">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -94,11 +105,13 @@
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="197" y="489.5"/>
+            <point key="canvasLocation" x="197" y="496.5"/>
         </window>
         <viewController id="1Kj-iL-rsa" customClass="SystemServicesController">
             <connections>
+                <outlet property="screenshotButton" destination="kd5-Dn-kQL" id="xX4-Oa-ycO"/>
                 <outlet property="textField" destination="iZD-zB-4e2" id="ir5-Rg-8Ca"/>
+                <outlet property="videoButton" destination="e1d-yX-kgd" id="cIO-CA-0lU"/>
             </connections>
         </viewController>
     </objects>
